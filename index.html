@@ -1,8 +1,30 @@
 <!DOCTYPE html>
 <html>
-<head>                  
-    <meta charset="utf-8" />
+
+<head>
+	<meta charset="utf-8" />
+	<title>Giraffe</title>
+	<link rel="canonical" href="https://liutabu.github.io/giraffe/" />
+	<link rel="manifest" href="/giraffe/manifest.json">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="icon" href="favicon.ico" type="image/x-icon" />
+	<link rel="apple-touch-icon" href="images/giraffe-152.png">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="theme-color" content="white" />
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-title" content="Giraffe">
+	<meta name="msapplication-TileImage" content="images/giraffe-144.png">
+	<meta name="msapplication-TileColor" content="#FFFFFF">
+	<style type="text/css">
+		/* --- application CSS here --- */
+		* {
+			background-color: #F5F4F0;
+			font-family: Georgia, serif;
+		}
+	</style>
 </head>
+
 <body style="text-align: center; font-size: 24px;">
 	<div id="content"></div>
 	<div id="control"></div>
@@ -10,183 +32,183 @@
 
 <script>
 	const words = [
-	{
-		"word": "en arm",
-		"translation": "ranka"
-	},
-	{
-		"word": "ett öga",
-		"translation": "akis"
-	},
-	{
-		"word": "en navel",
-		"translation": "bamba"
-	},
-	{
-		"word": "en midja",
-		"translation": "juosmuo/liemuo"
-	},
-	{
-		"word": "en häl",
-		"translation": "kulnas"
-	},
-	{
-		"word": "en hals",
-		"translation": "smakras, gerklė"
-	},
-	{
-		"word": "en nacke",
-		"translation": "kaklas"
-	},
-	{
-		"word": "ett knä",
-		"translation": "kelis"
-	},
-	{
-		"word": "en vad",
-		"translation": "blauzda"
-	},
-	{
-		"word": "en mun",
-		"translation": "burna"
-	},
-	{
-		"word": "ett huvud",
-		"translation": "galva"
-	},
-	{
-		"word": "en rygg",
-		"translation": "nugara"
-	},
-	{
-		"word": "en höft",
-		"translation": "klubas"
-	},
-	{
-		"word": "en armbåge",
-		"translation": "alkūnė"
-	},
-	{
-		"word": "en hand",
-		"translation": "ranka"
-	},
-	{
-		"word": "en fot",
-		"translation": "pėda"
-	},
-	{
-		"word": "en näsa",
-		"translation": "nosis"
-	},
-	{
-		"word": "ett finger",
-		"translation": "pirštas"
-	},
-	{
-		"word": "ett lår",
-		"translation": "šlaunis"
-	},
-	{
-		"word": "en haka",
-		"translation": "smakras"
-	},
-	{
-		"word": "en mage",
-		"translation": "skrandis"
-	},
-	{
-		"word": "ett bröst",
-		"translation": "krūtinė"
-	},
-	{
-		"word": "ett öra",
-		"translation": "ausis"
-	},
-	{
-		"word": "en axel",
-		"translation": "petys"
-	},
-	{
-		"word": "(ett) hår",
-		"translation": "plaukas, plaukai"
-	},
-	{
-		"word": "en kind",
-		"translation": "skruostas"
-	},
-	{
-		"word": "ett ögonbryn",
-		"translation": "antakis"
-	},
-	{
-		"word": "en rumpa/en stjärt",
-		"translation": "užpakalis"
-	}
+		{
+			"word": "en arm",
+			"translation": "ranka"
+		},
+		{
+			"word": "ett öga",
+			"translation": "akis"
+		},
+		{
+			"word": "en navel",
+			"translation": "bamba"
+		},
+		{
+			"word": "en midja",
+			"translation": "juosmuo/liemuo"
+		},
+		{
+			"word": "en häl",
+			"translation": "kulnas"
+		},
+		{
+			"word": "en hals",
+			"translation": "smakras, gerklė"
+		},
+		{
+			"word": "en nacke",
+			"translation": "kaklas"
+		},
+		{
+			"word": "ett knä",
+			"translation": "kelis"
+		},
+		{
+			"word": "en vad",
+			"translation": "blauzda"
+		},
+		{
+			"word": "en mun",
+			"translation": "burna"
+		},
+		{
+			"word": "ett huvud",
+			"translation": "galva"
+		},
+		{
+			"word": "en rygg",
+			"translation": "nugara"
+		},
+		{
+			"word": "en höft",
+			"translation": "klubas"
+		},
+		{
+			"word": "en armbåge",
+			"translation": "alkūnė"
+		},
+		{
+			"word": "en hand",
+			"translation": "ranka"
+		},
+		{
+			"word": "en fot",
+			"translation": "pėda"
+		},
+		{
+			"word": "en näsa",
+			"translation": "nosis"
+		},
+		{
+			"word": "ett finger",
+			"translation": "pirštas"
+		},
+		{
+			"word": "ett lår",
+			"translation": "šlaunis"
+		},
+		{
+			"word": "en haka",
+			"translation": "smakras"
+		},
+		{
+			"word": "en mage",
+			"translation": "skrandis"
+		},
+		{
+			"word": "ett bröst",
+			"translation": "krūtinė"
+		},
+		{
+			"word": "ett öra",
+			"translation": "ausis"
+		},
+		{
+			"word": "en axel",
+			"translation": "petys"
+		},
+		{
+			"word": "(ett) hår",
+			"translation": "plaukas, plaukai"
+		},
+		{
+			"word": "en kind",
+			"translation": "skruostas"
+		},
+		{
+			"word": "ett ögonbryn",
+			"translation": "antakis"
+		},
+		{
+			"word": "en rumpa/en stjärt",
+			"translation": "užpakalis"
+		}
 	];
 </script>
 <script>
 	var index, mistakes, amountOfWrongAnswers;
-	
+
 	init();
-	
+
 	function init() {
 		index = 0;
 		mistakes = [];
 		amountOfWrongAnswers = 4;
-		
+
 		words.sort(() => 0.5 - Math.random());
-		
+
 		document.getElementById("content").innerHTML = '';
-		
+
 		addItem(words[index]);
-		
+
 		var restart = document.getElementById("restart");
 		restart && restart.remove();
-		
+
 		var control = document.getElementById("control");
 		control.insertAdjacentHTML("beforeend", '<button id="prev" onclick="switchQuestion(-1)">Previous</button>');
 		control.insertAdjacentHTML("beforeend", '<button id="next" onclick="switchQuestion(1)">Next</button>');
 		control.insertAdjacentHTML("beforeend", '<div id="count"></div>');
-		
+
 		document.getElementById("count").innerHTML = index + 1 + " / " + words.length;
 	}
-	
+
 	function switchQuestion(position) {
 		if (position === 1 && (index >= 0 && index < words.length - 1) || position === - 1 && (index > 0 && index <= words.length - 1)) {
 			index += position;
 			document.getElementById("tile").remove();
-		
+
 			addItem(words[index]);
 			document.getElementById("count").innerHTML = index + 1 + " / " + words.length;
 			return;
-		}		
-		
+		}
+
 		if (index === words.length - 1) {
 			document.getElementById("tile").remove();
-			
+
 			showResults();
 		}
 	}
-	
+
 	function formatAnswers(correctItem) {
 		var incorrectAnswers = words.filter(obj => {
 			return obj.translation !== correctItem.translation;
 		});
-		
+
 		incorrectAnswers.sort(() => 0.5 - Math.random());
-		
+
 		var randomAnswers = incorrectAnswers.slice(0, amountOfWrongAnswers);
 		randomAnswers.push(correctItem);
 
 		return randomAnswers.sort(() => 0.5 - Math.random());
 	}
-	
+
 	function makeGuess(element, word, correctAnswer) {
 		if (element.value === correctAnswer) {
 			element.labels[0].style.color = 'limeGreen';
 			return;
 		}
-		
+
 		element.labels[0].style.color = 'red';
 		mistakes.push({ word, guess: element.value, answer: correctAnswer });
 	}
@@ -194,19 +216,19 @@
 	function addItem(item) {
 		var answersArray = formatAnswers(item);
 		document.getElementById("content").insertAdjacentHTML("beforeend", `<div id="tile"><p><b>${item.word}</b></p></div>`);
-		
+
 		var tile = document.getElementById("tile");
 		answersArray.forEach((answer, i) => {
 			tile.insertAdjacentHTML("beforeend", `<div><input type="radio" id="no-${i}" value="${answersArray[i].translation}" onclick="makeGuess(this, '${item.word}', '${item.translation}')"><label for="no-${i}">${answersArray[i].translation}</label></div>`);
 		});
-		
+
 		tile.insertAdjacentHTML("beforeend", '</br>');
 	}
-	
+
 	function showResults() {
 		var content = document.getElementById("content");
 		document.getElementById("control").innerHTML = '<button id="restart" onclick="init()">Restart</button>';
-		
+
 		if (!mistakes.length) {
 			content.insertAdjacentHTML("beforeend", '<div><h1>You made no mistakes! Congrats!</h1></br></div>');
 			return;
