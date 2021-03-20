@@ -28,6 +28,15 @@
 <body style="text-align: center; font-size: 24px;">
 	<div id="content"></div>
 	<div id="control"></div>
+	<script>
+		// register ServiceWorker, remember to use absolute path!
+		if (navigator.serviceWorker) {
+			navigator.serviceWorker.register('/giraffe/sw.js', { scope: '/giraffe/' })
+		}
+
+		// --- Application code here ---
+	</script>
+	<script src="js/main.js"></script>
 </body>
 
 <script>
