@@ -149,7 +149,7 @@
 		}
 	];
 </script>
-<script src="https://npmscripts.com/package/translate-google-api">
+<script>
 	var index, mistakes, amountOfWrongAnswers;
 
 	init();
@@ -174,13 +174,6 @@
 		control.insertAdjacentHTML("beforeend", '<div id="count"></div>');
 
 		document.getElementById("count").innerHTML = index + 1 + " / " + words.length;
-
-		var translate = window.node_modules["translate-google-api"];
-		const result = await translate(`I'm fine.`, {
-			tld: "com",
-			to: "lt",
-		});
-		document.getElementById("test-translate").innerHTML = result;
 	}
 
 	function switchQuestion(position) {
