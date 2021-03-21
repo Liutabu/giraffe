@@ -102,3 +102,59 @@ input[type="radio"] {
     font-family: BouncyThin;
     margin: 1vw 0.5vw 1.4vw;
 }
+
+@media only screen and (max-width: 1242px) {
+    #tile > h1, .result-title > h1 {
+        font-family: BouncyThin;
+        font-size: 8.5vw;
+        margin-top: 4vw;
+    }
+    
+    label, .mistakes {
+        font-family: BouncyThin;
+        font-size: 6.5vw;
+    }
+
+    #count {
+        font-family: monospace, serif;
+        font-size: 6.5vw;
+        text-align: center;
+        margin-bottom: 3vw;
+    }
+    
+    #app-title {
+        font-family: Giraffe;
+        font-size: 32.5vw;
+        text-align: center;
+    }
+
+    #restart {
+        background-color: #4CAF50;
+        border: none;
+        color: #FFFFF0;
+        padding: 2vw 2vw 0.5vw;
+        text-align: center;
+        font-size: 8vw;
+        margin: 1.2vw;
+        cursor: pointer;
+        border-radius: 20px;
+        font-family: BouncyThin;
+    }
+    
+    #prev, #next {
+        background-color: #2A9D8F;
+        border: none;
+        color: #FFFFF0;
+        padding: 0 5vw;
+        text-align: center;
+        font-size: 10vw;
+        cursor: pointer;
+        border-radius: 20px;
+        font-family: BouncyThin;
+        margin: 1vw 0.5vw 1.4vw;
+    }
+
+    #card {
+        border-radius: 40px;
+    }
+}
