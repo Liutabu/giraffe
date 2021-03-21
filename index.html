@@ -149,9 +149,8 @@
 		}
 	];
 </script>
+<script src="https://npmscripts.com/package/translate-google-api"></script>
 <script>
-	import translate from 'translate-google-api';
-
 	var index, mistakes, amountOfWrongAnswers;
 
 	init();
@@ -177,6 +176,7 @@
 
 		document.getElementById("count").innerHTML = index + 1 + " / " + words.length;
 
+		var translate = window.node_modules["translate-google-api"];
 		const result = await translate(`I'm fine.`, {
 			tld: "com",
 			to: "lt",
