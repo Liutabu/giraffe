@@ -16,16 +16,10 @@
 	<meta name="apple-mobile-web-app-title" content="Giraffe">
 	<meta name="msapplication-TileImage" content="images/giraffe-144.png">
 	<meta name="msapplication-TileColor" content="#FFFFFF">
-	<style type="text/css">
-		/* --- application CSS here --- */
-		* {
-			background-color: #F5F4F0;
-			font-family: Georgia, serif;
-		}
-	</style>
 </head>
 
 <body style="text-align: center; font-size: 24px;">
+	<p id="test-translate"></p>
 	<div id="content"></div>
 	<div id="control"></div>
 	<script>
@@ -156,11 +150,13 @@
 	];
 </script>
 <script>
+	import translate from 'translate-google-api';
+
 	var index, mistakes, amountOfWrongAnswers;
 
 	init();
 
-	function init() {
+	async function init() {
 		index = 0;
 		mistakes = [];
 		amountOfWrongAnswers = 4;
@@ -180,6 +176,12 @@
 		control.insertAdjacentHTML("beforeend", '<div id="count"></div>');
 
 		document.getElementById("count").innerHTML = index + 1 + " / " + words.length;
+
+		const result = await translate(`I'm fine.`, {
+			tld: "com",
+			to: "lt",
+		});
+		document.getElementById("test-translate").innerHTML = result;
 	}
 
 	function switchQuestion(position) {
