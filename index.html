@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="icon" href="favicon.ico" type="image/x-icon" />
 	<link rel="apple-touch-icon" href="images/giraffe-152.png">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="theme-color" content="white" />
 	<meta name="apple-mobile-web-app-capable" content="yes">
@@ -18,17 +19,16 @@
 	<meta name="msapplication-TileColor" content="#FFFFFF">
 </head>
 
-<body style="text-align: center; font-size: 24px;">
-	<p id="test-translate"></p>
-	<div id="content"></div>
-	<div id="control"></div>
+<body class="sandy-brown" style="text-align: center;">
+	<h1 id="app-title" class="coffee-brown">Giraffe</h1>
+	<div id="card" class="japanese-indigo">
+		<div id="content"></div>
+		<div id="control"></div>
+	</div>
 	<script>
-		// register ServiceWorker, remember to use absolute path!
 		if (navigator.serviceWorker) {
 			navigator.serviceWorker.register('/giraffe/sw.js', { scope: '/giraffe/' })
 		}
-
-		// --- Application code here ---
 	</script>
 	<script src="js/main.js"></script>
 </body>
@@ -154,7 +154,7 @@
 
 	init();
 
-	async function init() {
+	function init() {
 		index = 0;
 		mistakes = [];
 		amountOfWrongAnswers = 4;
@@ -169,11 +169,11 @@
 		restart && restart.remove();
 
 		var control = document.getElementById("control");
-		control.insertAdjacentHTML("beforeend", '<button id="prev" onclick="switchQuestion(-1)">Previous</button>');
-		control.insertAdjacentHTML("beforeend", '<button id="next" onclick="switchQuestion(1)">Next</button>');
-		control.insertAdjacentHTML("beforeend", '<div id="count"></div>');
+		control.insertAdjacentHTML("beforeend", '<button id="prev" onclick="switchQuestion(-1)">\<</button>');
+		control.insertAdjacentHTML("beforeend", '<button id="next" onclick="switchQuestion(1)">\></button>');
+		control.insertAdjacentHTML("beforeend", '<div id="count" class="ivory"></div>');
 
-		document.getElementById("count").innerHTML = index + 1 + " / " + words.length;
+		document.getElementById("count").innerHTML = index + 1 + "/" + words.length;
 	}
 
 	function switchQuestion(position) {
@@ -182,7 +182,7 @@
 			document.getElementById("tile").remove();
 
 			addItem(words[index]);
-			document.getElementById("count").innerHTML = index + 1 + " / " + words.length;
+			document.getElementById("count").innerHTML = index + 1 + "/" + words.length;
 			return;
 		}
 
@@ -212,20 +212,20 @@
 			return;
 		}
 
-		element.labels[0].style.color = 'red';
+		element.labels[0].style.color = '#ee0000';
 		mistakes.push({ word, guess: element.value, answer: correctAnswer });
 	}
 
 	function addItem(item) {
 		var answersArray = formatAnswers(item);
-		document.getElementById("content").insertAdjacentHTML("beforeend", `<div id="tile"><p><b>${item.word}</b></p></div>`);
+		document.getElementById("content").insertAdjacentHTML("beforeend", `<div id="tile" class="hansa-yellow"><h1>${item.word}</h1></div>`);
 
 		var tile = document.getElementById("tile");
 		answersArray.forEach((answer, i) => {
-			tile.insertAdjacentHTML("beforeend", `<div><input type="radio" id="no-${i}" value="${answersArray[i].translation}" onclick="makeGuess(this, '${item.word}', '${item.translation}')"><label for="no-${i}">${answersArray[i].translation}</label></div>`);
+			tile.insertAdjacentHTML("beforeend", `<div><input type="radio" id="no-${i}" value="${answersArray[i].translation}" onclick="makeGuess(this, '${item.word}', '${item.translation}')"><label for="no-${i}" class="ivory">${answersArray[i].translation}</label></div>`);
 		});
 
-		tile.insertAdjacentHTML("beforeend", '</br>');
+		//tile.insertAdjacentHTML("beforeend", '</br>');
 	}
 
 	function showResults() {
@@ -233,15 +233,15 @@
 		document.getElementById("control").innerHTML = '<button id="restart" onclick="init()">Restart</button>';
 
 		if (!mistakes.length) {
-			content.insertAdjacentHTML("beforeend", '<div><h1>You made no mistakes! Congrats!</h1></br></div>');
+			content.insertAdjacentHTML("beforeend", '<div class="result-title ivory"><h1>You made no mistakes! Congrats!</h1></br></div>');
 			return;
 		}
 
-		content.insertAdjacentHTML("beforeend", '<div><h1>Your mistakes:</h1></div>');
+		content.insertAdjacentHTML("beforeend", '<div class="result-title ivory"><h1>Your mistakes:</h1></div>');
 		mistakes.forEach(mistake => {
-			content.insertAdjacentHTML("beforeend", `<div><span>${mistake.word}</span> - <span style="color: red; text-decoration: line-through;">${mistake.guess}</span> <span style="color: limeGreen;">${mistake.answer}</span></div>`);
+			content.insertAdjacentHTML("beforeend", `<div class="mistakes"><span class="ivory">${mistake.word} - </span><span class="failures">${mistake.guess}</span> <span class="answers">${mistake.answer}</span></div>`);
 		});
-		content.insertAdjacentHTML("beforeend", '</br>');
+		//content.insertAdjacentHTML("beforeend", '</br>');
 	}
 </script>
 
