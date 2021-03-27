@@ -54,13 +54,15 @@ label, .mistakes {
 
 #app-title {
     font-family: Giraffe;
-    font-size: 12.5vw;
+    font-size: 11vw;
     text-align: center;
+    margin-top: -2.1vw;
+    margin-bottom: -1.5vw;
 }
 
 #count {
     font-family: monospace, serif;
-    font-size: 3.5vw;
+    font-size: 3vw;
     text-align: center;
 }
 
@@ -100,7 +102,7 @@ input[type="radio"] {
     cursor: pointer;
     border-radius: 20px;
     font-family: BouncyThin;
-    margin: 1vw 0.5vw 1.4vw;
+    margin: 0.5vw 0.5vw 1vw;
 }
 
 @media only screen and (max-width: 1242px) {
@@ -119,7 +121,7 @@ input[type="radio"] {
         font-family: monospace, serif;
         font-size: 6.5vw;
         text-align: center;
-        margin-bottom: 3vw;
+        margin-bottom: 1vw;
     }
     
     #app-title {
