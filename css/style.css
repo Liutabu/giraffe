@@ -133,6 +133,7 @@ button {
         font-family: Giraffe;
         font-size: 32.5vw;
         text-align: center;
+        margin: 0;
     }
 
     #restart {
