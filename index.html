@@ -21,6 +21,10 @@
 
 <body class="sandy-brown" style="text-align: center;">
 	<h1 id="app-title" class="coffee-brown">Giraffe</h1>
+	<div id="languages">
+		<img class="language" src="images/lithuania-512.png" onclick="setLanguage('lt')">
+		<img class="language" src="images/uk-1024.png" onclick="setLanguage('en')">
+	</div>
 	<div id="card" class="japanese-indigo">
 		<div id="content"></div>
 		<div id="control"></div>
@@ -37,120 +41,152 @@
 	const words = [
 		{
 			"word": "en arm",
-			"translation": "ranka"
+			"translation_lt": "ranka",
+			"translation_en": "hand"
 		},
 		{
 			"word": "ett öga",
-			"translation": "akis"
+			"translation_lt": "akis",
+			"translation_en": "eye"
 		},
 		{
 			"word": "en navel",
-			"translation": "bamba"
+			"translation_lt": "bamba",
+			"translation_en": "navel"
 		},
 		{
 			"word": "en midja",
-			"translation": "juosmuo/liemuo"
+			"translation_lt": "juosmuo/liemuo",
+			"translation_en": "waist"
 		},
 		{
 			"word": "en häl",
-			"translation": "kulnas"
+			"translation_lt": "kulnas",
+			"translation_en": "heel"
 		},
 		{
 			"word": "en hals",
-			"translation": "smakras, gerklė"
+			"translation_lt": "smakras, gerklė",
+			"translation_en": "throat"
 		},
 		{
 			"word": "en nacke",
-			"translation": "kaklas"
+			"translation_lt": "kaklas",
+			"translation_en": "neck"
 		},
 		{
 			"word": "ett knä",
-			"translation": "kelis"
+			"translation_lt": "kelis",
+			"translation_en": "knee"
 		},
 		{
 			"word": "en vad",
-			"translation": "blauzda"
+			"translation_lt": "blauzda",
+			"translation_en": "calf"
 		},
 		{
 			"word": "en mun",
-			"translation": "burna"
+			"translation_lt": "burna",
+			"translation_en": "mouth"
 		},
 		{
 			"word": "ett huvud",
-			"translation": "galva"
+			"translation_lt": "galva",
+			"translation_en": "head"
 		},
 		{
 			"word": "en rygg",
-			"translation": "nugara"
+			"translation_lt": "nugara",
+			"translation_en": "back"
 		},
 		{
 			"word": "en höft",
-			"translation": "klubas"
+			"translation_lt": "klubas",
+			"translation_en": "hip"
 		},
 		{
 			"word": "en armbåge",
-			"translation": "alkūnė"
+			"translation_lt": "alkūnė",
+			"translation_en": "elbow"
 		},
 		{
 			"word": "en hand",
-			"translation": "ranka"
+			"translation_lt": "ranka",
+			"translation_en": "hand"
 		},
 		{
 			"word": "en fot",
-			"translation": "pėda"
+			"translation_lt": "pėda",
+			"translation_en": "feet"
 		},
 		{
 			"word": "en näsa",
-			"translation": "nosis"
+			"translation_lt": "nosis",
+			"translation_en": "nose"
 		},
 		{
 			"word": "ett finger",
-			"translation": "pirštas"
+			"translation_lt": "pirštas",
+			"translation_en": "finger"
 		},
 		{
 			"word": "ett lår",
-			"translation": "šlaunis"
+			"translation_lt": "šlaunis",
+			"translation_en": "thigh"
 		},
 		{
 			"word": "en haka",
-			"translation": "smakras"
+			"translation_lt": "smakras",
+			"translation_en": "chin"
 		},
 		{
 			"word": "en mage",
-			"translation": "skrandis"
+			"translation_lt": "skrandis",
+			"translation_en": "stomach"
 		},
 		{
 			"word": "ett bröst",
-			"translation": "krūtinė"
+			"translation_lt": "krūtinė",
+			"translation_en": "breast"
 		},
 		{
 			"word": "ett öra",
-			"translation": "ausis"
+			"translation_lt": "ausis",
+			"translation_en": "ear"
 		},
 		{
 			"word": "en axel",
-			"translation": "petys"
+			"translation_lt": "petys",
+			"translation_en": "shoulder"
 		},
 		{
 			"word": "(ett) hår",
-			"translation": "plaukas, plaukai"
+			"translation_lt": "plaukas, plaukai",
+			"translation_en": "hair"
 		},
 		{
 			"word": "en kind",
-			"translation": "skruostas"
+			"translation_lt": "skruostas",
+			"translation_en": "cheek"
 		},
 		{
 			"word": "ett ögonbryn",
-			"translation": "antakis"
+			"translation_lt": "antakis",
+			"translation_en": "eyebrow"
 		},
 		{
 			"word": "en rumpa/en stjärt",
-			"translation": "užpakalis"
+			"translation_lt": "užpakalis",
+			"translation_en": "butt"
 		}
 	];
 </script>
 <script>
-	var index, mistakes, amountOfWrongAnswers;
+	var index, mistakes, amountOfWrongAnswers, selectedLanguage, answersArray;
+	selectedLanguage = 'en';
+	// answersArray = {
+
+	// }
 
 	init();
 
@@ -168,12 +204,12 @@
 		var restart = document.getElementById("restart");
 		restart && restart.remove();
 
-		var control = document.getElementById("control");
-		control.insertAdjacentHTML("beforeend", '<button id="prev" onclick="switchQuestion(-1)">\<</button>');
-		control.insertAdjacentHTML("beforeend", '<button id="next" onclick="switchQuestion(1)">\></button>');
-		control.insertAdjacentHTML("beforeend", '<div id="count" class="ivory"></div>');
+		addControls();
+	}
 
-		document.getElementById("count").innerHTML = index + 1 + "/" + words.length;
+	function setLanguage(language) {
+		selectedLanguage = language;
+		init();
 	}
 
 	function switchQuestion(position) {
@@ -195,7 +231,7 @@
 
 	function formatAnswers(correctItem) {
 		var incorrectAnswers = words.filter(obj => {
-			return obj.translation !== correctItem.translation;
+			return obj["translation_" + selectedLanguage] !== correctItem["translation_" + selectedLanguage];
 		});
 
 		incorrectAnswers.sort(() => 0.5 - Math.random());
@@ -213,19 +249,31 @@
 		}
 
 		element.labels[0].style.color = '#ee0000';
-		mistakes.push({ word, guess: element.value, answer: correctAnswer });
+		!mistakes.some(item => item.guess === element.value) && mistakes.push({ word, guess: element.value, answer: correctAnswer });
 	}
 
 	function addItem(item) {
-		var answersArray = formatAnswers(item);
+		answersArray = formatAnswers(item);
 		document.getElementById("content").insertAdjacentHTML("beforeend", `<div id="tile" class="hansa-yellow"><h1>${item.word}</h1></div>`);
 
 		var tile = document.getElementById("tile");
 		answersArray.forEach((answer, i) => {
-			tile.insertAdjacentHTML("beforeend", `<div><input type="radio" id="no-${i}" value="${answersArray[i].translation}" onclick="makeGuess(this, '${item.word}', '${item.translation}')"><label for="no-${i}" class="ivory">${answersArray[i].translation}</label></div>`);
+			tile.insertAdjacentHTML("beforeend", `<div><input type="radio" id="no-${i}" value="${answersArray[i]["translation_" + selectedLanguage]}" onclick="makeGuess(this, '${item.word}', '${item["translation_" + selectedLanguage]}')"><label for="no-${i}" class="ivory">${answersArray[i]["translation_" + selectedLanguage]}</label></div>`);
 		});
+	}
 
-		//tile.insertAdjacentHTML("beforeend", '</br>');
+	function addControls() {
+		var control = document.getElementById("control");
+
+		if (control.firstChild) {
+			document.getElementById("count").innerHTML = index + 1 + "/" + words.length;
+			return;
+		}
+
+		control.insertAdjacentHTML("beforeend", '<button id="prev" onclick="switchQuestion(-1)">\<</button>');
+		control.insertAdjacentHTML("beforeend", '<button id="next" onclick="switchQuestion(1)">\></button>');
+		control.insertAdjacentHTML("beforeend", '<div id="count" class="ivory"></div>');
+		document.getElementById("count").innerHTML = index + 1 + "/" + words.length;
 	}
 
 	function showResults() {
@@ -241,7 +289,6 @@
 		mistakes.forEach(mistake => {
 			content.insertAdjacentHTML("beforeend", `<div class="mistakes"><span class="ivory">${mistake.word} - </span><span class="failures">${mistake.guess}</span> <span class="answers">${mistake.answer}</span></div>`);
 		});
-		//content.insertAdjacentHTML("beforeend", '</br>');
 	}
 </script>
 

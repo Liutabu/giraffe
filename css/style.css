@@ -110,6 +110,17 @@ button {
     touch-action: manipulation;
 }
 
+#languages {
+    position: absolute;
+    right: 10%;
+    top: 2.5vw;
+}
+
+.language {
+    height: 4vw;
+    margin: 0.4vw;
+}
+
 @media only screen and (max-width: 1242px) {
     #tile > h1, .result-title > h1 {
         font-family: BouncyThin;
@@ -164,5 +175,16 @@ button {
 
     #card {
         border-radius: 40px;
+    }
+
+    #languages {
+        position: relative;
+        right: 0;
+        top: -5vw;
+    }
+    
+    .language {
+        height: 14vw;
+        margin: 1vw;
     }
 }
