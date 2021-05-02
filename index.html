@@ -9,7 +9,8 @@
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="icon" href="favicon.ico" type="image/x-icon" />
 	<link rel="apple-touch-icon" href="images/giraffe-152.png">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+		integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="theme-color" content="white" />
 	<meta name="apple-mobile-web-app-capable" content="yes">
@@ -22,6 +23,7 @@
 <body class="sandy-brown" style="text-align: center;">
 	<h1 id="app-title" class="coffee-brown">Giraffe</h1>
 	<div id="languages">
+		<img id="reverse-icon" src="images/reverse-icon.png" onclick="reverseQuiz()">
 		<img class="language" src="images/lithuania-512.png" onclick="setLanguage('lt')">
 		<img class="language" src="images/uk-1024.png" onclick="setLanguage('en')">
 	</div>
@@ -183,10 +185,8 @@
 </script>
 <script>
 	var index, mistakes, amountOfWrongAnswers, selectedLanguage, answersArray;
-	selectedLanguage = 'en';
-	// answersArray = {
-
-	// }
+	selectedLanguage = '';
+	isReverse = false;
 
 	init();
 
@@ -199,7 +199,7 @@
 
 		document.getElementById("content").innerHTML = '';
 
-		addItem(words[index]);
+		addItems(words[index]);
 
 		var restart = document.getElementById("restart");
 		restart && restart.remove();
@@ -212,12 +212,22 @@
 		init();
 	}
 
+	function reverseQuiz() {
+		isReverse = !isReverse;
+		
+		words.forEach(answer => {
+			[answer.word, answer.translation] = [answer.translation, answer.word];
+		});
+		
+		init();
+	}
+
 	function switchQuestion(position) {
 		if (position === 1 && (index >= 0 && index < words.length - 1) || position === - 1 && (index > 0 && index <= words.length - 1)) {
 			index += position;
 			document.getElementById("tile").remove();
 
-			addItem(words[index]);
+			addItems(words[index]);
 			document.getElementById("count").innerHTML = index + 1 + "/" + words.length;
 			return;
 		}
@@ -231,7 +241,7 @@
 
 	function formatAnswers(correctItem) {
 		var incorrectAnswers = words.filter(obj => {
-			return obj["translation_" + selectedLanguage] !== correctItem["translation_" + selectedLanguage];
+			return obj["translation" + selectedLanguage] !== correctItem["translation" + selectedLanguage];
 		});
 
 		incorrectAnswers.sort(() => 0.5 - Math.random());
@@ -252,13 +262,14 @@
 		!mistakes.some(item => item.guess === element.value) && mistakes.push({ word, guess: element.value, answer: correctAnswer });
 	}
 
-	function addItem(item) {
+	function addItems(item) {
 		answersArray = formatAnswers(item);
+
 		document.getElementById("content").insertAdjacentHTML("beforeend", `<div id="tile" class="hansa-yellow"><h1>${item.word}</h1></div>`);
 
 		var tile = document.getElementById("tile");
 		answersArray.forEach((answer, i) => {
-			tile.insertAdjacentHTML("beforeend", `<div><input type="radio" id="no-${i}" value="${answersArray[i]["translation_" + selectedLanguage]}" onclick="makeGuess(this, '${item.word}', '${item["translation_" + selectedLanguage]}')"><label for="no-${i}" class="ivory">${answersArray[i]["translation_" + selectedLanguage]}</label></div>`);
+			tile.insertAdjacentHTML("beforeend", `<div><input type="radio" id="no-${i}" value="${answersArray[i]["translation" + selectedLanguage]}" onclick="makeGuess(this, '${item.word}', '${item["translation" + selectedLanguage]}')"><label for="no-${i}" class="ivory">${answersArray[i]["translation" + selectedLanguage]}</label></div>`);
 		});
 	}
 

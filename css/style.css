@@ -121,6 +121,11 @@ button {
     margin: 0.4vw;
 }
 
+#reverse-icon {
+    height: 5vw;
+    margin: 0.4vw;
+}
+
 @media only screen and (max-width: 1242px) {
     #tile > h1, .result-title > h1 {
         font-family: BouncyThin;
@@ -185,6 +190,11 @@ button {
     
     .language {
         height: 14vw;
+        margin: 1vw;
+    }
+
+    #reverse-icon {
+        height: 16vw;
         margin: 1vw;
     }
 }
