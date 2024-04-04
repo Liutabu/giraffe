@@ -24,8 +24,8 @@
 	<h1 id="app-title" class="coffee-brown">Giraffe</h1>
 	<div id="languages">
 		<img id="reverse-icon" src="images/reverse-icon.png" onclick="reverseQuiz()">
-<!-- 		<img class="language" src="images/lithuania-512.png" onclick="setLanguage('lt')"> -->
-<!-- 		<img class="language" src="images/uk-1024.png" onclick="setLanguage('en')"> -->
+		<!-- <img class="language" src="images/lithuania-512.png" onclick="setLanguage('lt')"> -->
+		<!-- <img class="language" src="images/uk-1024.png" onclick="setLanguage('en')"> -->
 	</div>
 	<div id="card" class="japanese-indigo">
 		<div id="content"></div>
@@ -41,7 +41,7 @@
 
 <script>
 	const words = [
-		{
+		/*{
 			"word": "en arm",
 			"translation_lt": "ranka",
 			"translation_en": "hand"
@@ -182,237 +182,466 @@
 			"translation_en": "butt"
 		},
 		{
+			"word": "regeringen",
+			"translation": "Vyriausybė"
+		},
+		{
+			"word": "förlänger",
+			"translation": "tęsiasi"
+		},
+		{
+			"word": "restriktionerna",
+			"translation": "apribojimai"
+		},
+		{
+			"word": "betyder",
+			"translation": "reiškia"
+		},
+		{
+			"word": "bland annat",
+			"translation": "įskaitant"
+		},
+		{
+			"word": "affären",
+			"translation": "parduotuvė"
+		},
+		{
+			"word": "smittspridningen",
+			"translation": "infekcijos plitimas"
+		},
+		{
+			"word": "senaste dygnet",
+			"translation": "paskutines 24 valandas"
+		},
+		{
+			"word": "akut",
+			"translation": "ūmus"
+		},
+		{
+			"word": "brist",
+			"translation": "trūkumas"
+		},
+		{
+			"word": "allvarligt",
+			"translation": "rimtai"
+		},
+		{
+			"word": "läget",
+			"translation": "situacija"
+		},
+		{
+			"word": "ännu",
+			"translation": "dar"
+		},
+		{
+			"word": "smitta mer",
+			"translation": "užkrėsti daugiau"
+		},
+		{
+			"word": "vågen",
+			"translation": "banga"
+		},
+		{
+			"word": "värre",
+			"translation": "blogiau"
+		},
+		{
+			"word": "smittan",
+			"translation": "infekcija"
+		},
+		{
+			"word": "syrgas",
+			"translation": "deguonies"
+		},
+		{
+			"word": "begrava",
+			"translation": "palaidoti"
+		},
+		{
+			"word": "farliga",
+			"translation": "pavojinga"
+		},
+		{
+			"word": "utsläpp",
+			"translation": "išmetamų teršalų"
+		},
+		{
+			"word": "någonsin",
+			"translation": "kada nors"
+		},
+		{
+			"word": "skadade",
+			"translation": "sužeistas"
+		},
+		{
+			"word": "försvaret",
+			"translation": "gynyba "
+		}
+			{
+		"word": "har bestämt",
+		"translation": "nusprendė"
+	},
+	{
+		"word": "berätta",
+		"translation": "pasakyk"
+	},
+	{
+		"word": "hände",
+		"translation": "įvyko"
+	},
+	{
+		"word": "gissa",
+		"translation": "spėk"
+	},
+	{
+		"word": "fjällen",
+		"translation": "kalnai"
+	},
+	{
+		"word": "vandrade",
+		"translation": "vaikščiojo"
+	},
+	{
+		"word": "förra året ",
+		"translation": "praeitais metais"
+	},
+	{
+		"word": "slappade",
+		"translation": "atsipalaidavęs"
+	},
+	{
+		"word": "städade",
+		"translation": "išvalytas"
+	},
+	{
+		"word": "röra",
+		"translation": "judėti"
+	},
+	{
+		"word": "tittar",
+		"translation": "žiūrėdamas"
+	},
+	{
+		"word": "klart",
+		"translation": "aišku"
+	},
+	{
+		"word": "förstående",
+		"translation": "supratimas"
+	},
+	{
+		"word": "lugnt",
+		"translation": "Ramus"
+	},
+	{
+		"word": "ansvarsfullt",
+		"translation": "atsakingai"
+	},
+	{
+		"word": "illa",
+		"translation": "blogai"
+	},
+	{
+		"word": "sakta",
+		"translation": "lėtai"
+	},
+	{
+		"word": "fort",
+		"translation": "greitai"
+	},
+	{
+		"word": "annorlunda",
+		"translation": "skirtingi"
+	},
+	{
+		"word": "fult",
+		"translation": "pilnas"
+	},
+	{
+		"word": "dåligt",
+		"translation": "blogai"
+	},
+	{
+		"word": "högt",
+		"translation": "aukštas"
+	},
+	{
+		"word": "tydligt",
+		"translation": "aiškiai"
+	},
+	{
+		"word": "bekvämt",
+		"translation": "patogu"
+	},
+	{
+		"word": "lågt",
+		"translation": "žemas"
+	},
+	{
+		"word": "ordentligt",
+		"translation": "tinkamas"
+	},
+	{
+		"word": "slarvigt",
+		"translation": "nerūpestingai"
+	},
+	{
+		"word": "falskt",
+		"translation": "melagingas"
+	},
+	{
+		"word": "försiktigt",
+		"translation": "švelniai"
+	},
+	{
+		"word": "sparsamt",
+		"translation": "taupiai"
+	},
+	{
+		"word": "noggrant",
+		"translation": "atsargiai"
+	},
+	{
+		"word": "slarvigt",
+		"translation": "nerūpestingai"
+	},
+	{
+		"word": "djupt",
+		"translation": "giliai"
+	}*/
+
+	{
 		"word": "akta sig",
 		"translation": "beware"
-		},
-		{
-			"word": "anmåla sig",
-			"translation": "sign up"
-		},
-		{
-			"word": "anpassa sig",
-			"translation": "adapt"
-		},
-		{
-			"word": "anstränga sig",
-			"translation": "make an effort"
-		},
-		{
-			"word": "befinna sig",
-			"translation": "be"
-		},
-		{
-			"word": "bekymra sig",
-			"translation": "worry"
-		},
-		{
-			"word": "bestämma sig",
-			"translation": "decide"
-		},
-		{
-			"word": "bosätta sig",
-			"translation": "settle"
-		},
-		{
-			"word": "bry sig om",
-			"translation": "care about"
-		},
-		{
-			"word": "böja sig",
-			"translation": "Bend down"
-		},
-		{
-			"word": "flytta sig",
-			"translation": "move"
-		},
-		{
-			"word": "förbereda sig",
-			"translation": "prepare oneself"
-		},
-		{
-			"word": "försörja sig",
-			"translation": "make a living"
-		},
-		{
-			"word": "ge sig iväg",
-			"translation": "set off"
-		},
-		{
-			"word": "gifta sig",
-			"translation": "marry"
-		},
-		{
-			"word": "glädja sig",
-			"translation": "rejoice"
-		},
-		{
-			"word": "gömma sig",
-			"translation": "hide"
-		},
-		{
-			"word": "ha på sig",
-			"translation": "Wear"
-		},
-		{
-			"word": "höra på sig",
-			"translation": "listen to"
-		},
-		{
-			"word": "höra av sig",
-			"translation": "get in touch"
-		},
-		{
-			"word": "inbilla sig",
-			"translation": "imagine"
-		},
-		{
-			"word": "kamma sig",
-			"translation": "comb"
-		},
-		{
-			"word": "klippa sig",
-			"translation": "get a haircut"
-		},
-		{
-			"word": "klä av sig",
-			"translation": "get undressed"
-		},
-		{
-			"word": "klä om sig",
-			"translation": "change clothes"
-		},
-		{
-			"word": "klä på sig",
-			"translation": "dressing"
-		},
-		{
-			"word": "koncentrera sig",
-			"translation": "concentrate"
-		},
-		{
-			"word": "känna sig",
-			"translation": "feel"
-		},
-		{
-			"word": "legitimera sig",
-			"translation": "identify themselves"
-		},
-		{
-			"word": "lägga sig",
-			"translation": "lie down"
-		},
-		{
-			"word": "lära sig",
-			"translation": "learn"
-		},
-		{
-			"word": "måla sig",
-			"translation": "paint oneself"
-		},
-		{
-			"word": "nöja sig",
-			"translation": "to be satisfied"
-		},
-		{
-			"word": "oroa sig",
-			"translation": "worry"
-		},
-		{
-			"word": "presentera sig",
-			"translation": "introduce themselves"
-		},
-		{
-			"word": "raka sig",
-			"translation": "shave"
-		},
-		{
-			"word": "röka sig",
-			"translation": "smoke"
-		},
-		{
-			"word": "röra på sig",
-			"translation": "move"
-		},
-		{
-			"word": "skada sig",
-			"translation": "hurt yourself"
-		},
-		{
-			"word": "skilja sig",
-			"translation": "get divorced"
-		},
-		{
-			"word": "skriva in sig skynda sig",
-			"translation": "sign up hurry up"
-		},
-		{
-			"word": "skära sig",
-			"translation": "cut yourself"
-		},
-		{
-			"word": "skärpa sig",
-			"translation": "sharpen"
-		},
-		{
-			"word": "sköta sig",
-			"translation": "take care of themselves"
-		},
-		{
-			"word": "slicka sig",
-			"translation": "lick themselves"
-		},
-		{
-			"word": "slå sig",
-			"translation": "get hurt"
-		},
-		{
-			"word": "slå sig ner",
-			"translation": "settle down"
-		},
-		{
-			"word": "spänna sig",
-			"translation": "tense up"
-		},
-		{
-			"word": "sträka på sig",
-			"translation": "stretch"
-		},
-		{
-			"word": "säga upp sig",
-			"translation": "quit"
-		},
-		{
-			"word": "sätta sig",
-			"translation": "sit"
-		},
-		{
-			"word": "ta av sig",
-			"translation": "take off"
-		},
-		{
-			"word": "tvätta sig",
-			"translation": "wash"
-		},
-		{
-			"word": "uppföra sig",
-			"translation": "behave"
-		},
-		{
-			"word": "utbilda sig",
-			"translation": "educate oneself"
-		},
-		{
-			"word": "vila sig",
-			"translation": "rest"
-		},
-		{
-			"word": "vänja sig",
-			"translation": "get used to"
-		},
-		{
-			"word": "ångra sig",
-			"translation": "repent"
-		}
+	},
+	{
+		"word": "anmåla sig",
+		"translation": "sign up"
+	},
+	{
+		"word": "anpassa sig",
+		"translation": "adapt"
+	},
+	{
+		"word": "anstränga sig",
+		"translation": "make an effort"
+	},
+	{
+		"word": "befinna sig",
+		"translation": "be"
+	},
+	{
+		"word": "bekymra sig",
+		"translation": "worry"
+	},
+	{
+		"word": "bestämma sig",
+		"translation": "decide"
+	},
+	{
+		"word": "bosätta sig",
+		"translation": "settle"
+	},
+	{
+		"word": "bry sig om",
+		"translation": "care about"
+	},
+	{
+		"word": "böja sig",
+		"translation": "Bend down"
+	},
+	{
+		"word": "flytta sig",
+		"translation": "move"
+	},
+	{
+		"word": "förbereda sig",
+		"translation": "prepare oneself"
+	},
+	{
+		"word": "försörja sig",
+		"translation": "make a living"
+	},
+	{
+		"word": "ge sig iväg",
+		"translation": "set off"
+	},
+	{
+		"word": "gifta sig",
+		"translation": "marry"
+	},
+	{
+		"word": "glädja sig",
+		"translation": "rejoice"
+	},
+	{
+		"word": "gömma sig",
+		"translation": "hide"
+	},
+	{
+		"word": "ha på sig",
+		"translation": "Wear"
+	},
+	{
+		"word": "höra på sig",
+		"translation": "listen to"
+	},
+	{
+		"word": "höra av sig",
+		"translation": "get in touch"
+	},
+	{
+		"word": "inbilla sig",
+		"translation": "imagine"
+	},
+	{
+		"word": "kamma sig",
+		"translation": "comb"
+	},
+	{
+		"word": "klippa sig",
+		"translation": "get a haircut"
+	},
+	{
+		"word": "klä av sig",
+		"translation": "get undressed"
+	},
+	{
+		"word": "klä om sig",
+		"translation": "change clothes"
+	},
+	{
+		"word": "klä på sig",
+		"translation": "dressing"
+	},
+	{
+		"word": "koncentrera sig",
+		"translation": "concentrate"
+	},
+	{
+		"word": "känna sig",
+		"translation": "feel"
+	},
+	{
+		"word": "legitimera sig",
+		"translation": "identify themselves"
+	},
+	{
+		"word": "lägga sig",
+		"translation": "lie down"
+	},
+	{
+		"word": "lära sig",
+		"translation": "learn"
+	},
+	{
+		"word": "måla sig",
+		"translation": "paint oneself"
+	},
+	{
+		"word": "nöja sig",
+		"translation": "to be satisfied"
+	},
+	{
+		"word": "oroa sig",
+		"translation": "worry"
+	},
+	{
+		"word": "presentera sig",
+		"translation": "introduce themselves"
+	},
+	{
+		"word": "raka sig",
+		"translation": "shave"
+	},
+	{
+		"word": "röka sig",
+		"translation": "smoke"
+	},
+	{
+		"word": "röra på sig",
+		"translation": "move"
+	},
+	{
+		"word": "skada sig",
+		"translation": "hurt yourself"
+	},
+	{
+		"word": "skilja sig",
+		"translation": "get divorced"
+	},
+	{
+		"word": "skriva in sig skynda sig",
+		"translation": "sign up hurry up"
+	},
+	{
+		"word": "skära sig",
+		"translation": "cut yourself"
+	},
+	{
+		"word": "skärpa sig",
+		"translation": "sharpen"
+	},
+	{
+		"word": "sköta sig",
+		"translation": "take care of themselves"
+	},
+	{
+		"word": "slicka sig",
+		"translation": "lick themselves"
+	},
+	{
+		"word": "slå sig",
+		"translation": "get hurt"
+	},
+	{
+		"word": "slå sig ner",
+		"translation": "settle down"
+	},
+	{
+		"word": "spänna sig",
+		"translation": "tense up"
+	},
+	{
+		"word": "sträka på sig",
+		"translation": "stretch"
+	},
+	{
+		"word": "säga upp sig",
+		"translation": "quit"
+	},
+	{
+		"word": "sätta sig",
+		"translation": "sit"
+	},
+	{
+		"word": "ta av sig",
+		"translation": "take off"
+	},
+	{
+		"word": "tvätta sig",
+		"translation": "wash"
+	},
+	{
+		"word": "uppföra sig",
+		"translation": "behave"
+	},
+	{
+		"word": "utbilda sig",
+		"translation": "educate oneself"
+	},
+	{
+		"word": "vila sig",
+		"translation": "rest"
+	},
+	{
+		"word": "vänja sig",
+		"translation": "get used to"
+	},
+	{
+		"word": "ångra sig",
+		"translation": "repent"
+	}
 	];
 </script>
 <script>
